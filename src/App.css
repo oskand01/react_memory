@@ -7,6 +7,18 @@
   pointer-events: none;
 }
 
+body {
+  background-color: #282c34;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  width: 226px;
+  height: 314px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -22,6 +34,10 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.Card {
+  min-height: fit-content;
 }
 
 .App-link {
