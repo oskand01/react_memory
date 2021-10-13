@@ -29,16 +29,16 @@ function CardList(props) {
 
   useEffect(() => {
     function compareCards() {
-      const timer = setTimeout(() => {
-        console.log("COMPARE CARDS");
-        const one = selectedCards[0].value.toString();
-        const two = selectedCards[1].value.toString();
+      const one = selectedCards[0];
+      const two = selectedCards[1];
+      setSelectedCards([]);
 
-        if (one === two) {
+      const timer = setTimeout(() => {
+        if (one.value.toString() === two.value.toString()) {
           for (let i = 0; i < cardList.length; i++) {
-            if (selectedCards[0].id === cardList[i].id) {
+            if (one.id === cardList[i].id) {
               cardList[i].active = false;
-            } else if (selectedCards[1].id === cardList[i].id) {
+            } else if (two.id === cardList[i].id) {
               cardList[i].active = false;
             }
           }
@@ -48,14 +48,12 @@ function CardList(props) {
               cardList[i].clicked = false;
             }
           }
-
           console.log("FAILURE");
         }
-        setSelectedCards([]);
 
         let list = [...cardList];
         setCardList(list);
-      }, 500);
+      }, 300);
 
       return () => clearTimeout(timer);
     }
