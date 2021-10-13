@@ -42,11 +42,6 @@ function CardList(props) {
               cardList[i].active = false;
             }
           }
-          setSelectedCards([]);
-          console.log("CORRECT");
-
-          let list = [...cardList];
-          setCardList(list);
         } else {
           for (let i = 0; i < cardList.length; i++) {
             if (cardList[i].active === true) {
@@ -54,13 +49,12 @@ function CardList(props) {
             }
           }
 
-          setSelectedCards([]);
-
-          let list = [...cardList];
-          setCardList(list);
-
           console.log("FAILURE");
         }
+        setSelectedCards([]);
+
+        let list = [...cardList];
+        setCardList(list);
       }, 500);
 
       return () => clearTimeout(timer);
